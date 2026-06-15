@@ -22,6 +22,10 @@ from sklearn.ensemble import(
     RandomForestClassifier
 )
 
+import dagshub
+dagshub.init(repo_owner='Aftab-81', repo_name='Network_Security', mlflow=True)
+
+
 class ModelTrainer:
     def __init__(self, model_trainer_config: ModelTrainingConfig, data_transformation_artifacts: DataTransformationArtifacts):
         try:
@@ -32,12 +36,23 @@ class ModelTrainer:
             raise NetworkSecurityException(e, sys)
         
     
-    def track_mlflow(self, best_model, classification_metric):
+    def track_mlflow(self, best_model, classification_metric, model_name):
         with mlflow.start_run():
+
+            # Load Model name
+            mlflow.log_param("model_name", model_name)
+
+
+            for param_name, param_value in best_model.get_params().items():
+                # Add Hyperparameters
+                mlflow.log_param(param_name, param_value)
+
+            
             f1_score = classification_metric.f1_score
             precision_score = classification_metric.precision_score
             recall_score = classification_metric.recall_score
 
+            # Log Metrics
             mlflow.log_metric("f1_score", f1_score)
             mlflow.log_metric("precision_score", precision_score)
             mlflow.log_metric("recall_score", recall_score)
@@ -95,12 +110,12 @@ class ModelTrainer:
         classification_train_metric = get_classification_score(y_train, y_train_pred)
 
         ## Track the experiments with MLFlow later
-        self.track_mlflow(best_model, classification_train_metric)
+        self.track_mlflow(best_model, classification_train_metric, model_name= best_model_name)
 
 
         y_test_pred = best_model.predict(x_test)
         classification_test_metric = get_classification_score(y_test, y_test_pred)
-        self.track_mlflow(best_model, classification_test_metric)
+        self.track_mlflow(best_model, classification_test_metric, model_name= best_model_name)
 
         preprocessor = load_object(file_path= self.data_transformation_artifacts.transformed_object_file_path)
 
@@ -109,6 +124,8 @@ class ModelTrainer:
 
         Network_Model = NetworkModel(preprocessor= preprocessor, model= best_model)
         save_objects(self.model_trainer_config.trained_model_file_path, obj= Network_Model)
+
+        save_objects("final_models/model.pkl", best_model)
 
         ## Model Trainer artifact
 
