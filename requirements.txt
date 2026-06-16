@@ -10,4 +10,5 @@ dagshub
 pyaml
 fastapi
 uvicorn
+python-multipart # FastAPI application has an endpoint that uses Form() or File() parameters, something like:
 ## -e .

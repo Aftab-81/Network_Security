@@ -10,7 +10,9 @@ print(mongo_db_url)
 
 import pymongo
 from networksecurity.exception.exception import NetworkSecurityException
+    
 from networksecurity.logging.logger import logging
+    
 from networksecurity.pipeline.training_pipeline import TrainingPipeline
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -38,7 +40,11 @@ app.add_middleware(
     allow_credentials = True,
     allow_methods= ["*"],
     allow_headers= ["*"]
-)
+    )
+
+from fastapi.templating import Jinja2Templates
+templates = Jinja2Templates(directory= "./templates")
+
 
 @app.get("/", tags= ["authetication"])
 async def index():
@@ -52,7 +58,40 @@ async def train_route():
         return Response("Training is successful")
     except Exception as e:
         raise NetworkSecurityException(e, sys)
-    
+        
+@app.post("/predict")
+async def predict_route(request: Request, file: UploadFile = File(...)):
+    try:
+        df = pd.read_csv(file.file)
+        # print(df)
+        preprocessor = load_object("final_models/preprocessing.pkl")
+        network_model = load_object("final_models/model.pkl")
+        print(df.iloc[0])
+        y_pred = network_model.predict(df)
+        print(y_pred)
+        df["Predicted_column"] = y_pred
+        print(df["Predicted_column"])
+            
+        # df["Predicted_column"].replace(-1, 0)
+        # return df.to_json()
+
+        df.to_csv("prediction_output/output.csv")
+
+        table_html = df.to_html(classes= "table table-striped")
+
+        # print(table_html)
+
+        return templates.TemplateResponse(
+            request = request,
+            name = "table.html",
+            context = {
+                "table": table_html
+            }
+        )
+    # ("table.html", {"request": request, "table": table_html})
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
+
 
 if __name__ == "__main__":
-    app.run(app, host = "localhost", port= 8000)
+    app_run(app, host = "localhost", port= 8000)
