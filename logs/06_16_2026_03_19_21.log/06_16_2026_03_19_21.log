@@ -1,0 +1,32 @@
+[ 2026-06-16 03:19:32,092 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-16 03:19:32,093 ] 107 dagshub - INFO - Accessing as Aftab-81
+[ 2026-06-16 03:19:39,096 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Aftab-81/Network_Security "HTTP/1.1 200 OK"
+[ 2026-06-16 03:19:40,385 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-16 03:19:40,385 ] 107 dagshub - INFO - Initialized MLflow to track repo "Aftab-81/Network_Security"
+[ 2026-06-16 03:19:40,385 ] 107 dagshub - INFO - Repository Aftab-81/Network_Security initialized!
+[ 2026-06-16 03:20:10,032 ] 36 root - INFO - Start Data Ingestion
+[ 2026-06-16 03:20:26,404 ] 63 root - INFO - Performed train test split on the dataframe
+[ 2026-06-16 03:20:26,404 ] 65 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2026-06-16 03:20:26,405 ] 72 root - INFO - Exporting train and test path
+[ 2026-06-16 03:20:26,537 ] 82 root - INFO - Exported train and test file path
+[ 2026-06-16 03:20:26,537 ] 39 root - INFO - Data Ingestion Completed and Artifact: DataIngestionArtifacts(trained_file_path='Artifacts\\06_16_2026_03_19_23\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\06_16_2026_03_19_23\\data_ingestion\\ingested\\test.csv')
+[ 2026-06-16 03:20:26,553 ] 48 root - INFO - Initiate the data validation
+[ 2026-06-16 03:20:26,650 ] 32 root - INFO - Required Number of columns: 2
+[ 2026-06-16 03:20:26,650 ] 33 root - INFO - Data frame has columns: 31
+[ 2026-06-16 03:20:26,650 ] 32 root - INFO - Required Number of columns: 2
+[ 2026-06-16 03:20:26,650 ] 33 root - INFO - Data frame has columns: 31
+[ 2026-06-16 03:20:27,062 ] 60 root - INFO - Initiate the data transformation
+[ 2026-06-16 03:20:27,062 ] 63 root - INFO - Entered initiate_data_trasnformation method od DataTransformation class
+[ 2026-06-16 03:20:27,062 ] 65 root - INFO - Starting data transformation
+[ 2026-06-16 03:20:27,118 ] 48 root - INFO - Entered get_data_transformer_object method of DataTransformation Class
+[ 2026-06-16 03:20:27,118 ] 54 root - INFO - Initialized KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2026-06-16 03:20:27,203 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-16 03:20:27,203 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-16 03:20:27,203 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-16 03:20:27,218 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-16 03:27:31,312 ] 869 urllib3.connectionpool - WARNING - Retrying (Retry(total=6, connect=7, read=7, redirect=7, status=7)) after connection broken by 'SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2393)')': /Aftab-81/Network_Security.mlflow/api/2.0/mlflow-artifacts/artifacts/5589a833c2f341cf8676d9737fb6466e/models/m-47cd63220de247fd82cfe8e99ef752e3/artifacts/model.pkl
+[ 2026-06-16 03:30:42,289 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-16 03:30:42,406 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-16 03:30:42,406 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-16 03:30:42,489 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-16 03:30:42,489 ] 136 root - INFO - Model trainer artifact: ModelTrainerArtifacts(trained_model_file_path='Artifacts\\06_16_2026_03_19_23\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.991161231331911, precision_score=0.9900548000811853, recall_score=0.9922701383238405), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9763527054108216, precision_score=0.9712918660287081, recall_score=0.9814665592264303))
