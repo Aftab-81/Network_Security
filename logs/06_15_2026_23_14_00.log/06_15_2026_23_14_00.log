@@ -1,0 +1,6 @@
+[ 2026-06-15 23:14:29,194 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-15 23:14:29,256 ] 107 dagshub - INFO - Accessing as Aftab-81
+[ 2026-06-15 23:14:33,412 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Aftab-81/Network_Security "HTTP/1.1 200 OK"
+[ 2026-06-15 23:14:34,618 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-15 23:14:34,618 ] 107 dagshub - INFO - Initialized MLflow to track repo "Aftab-81/Network_Security"
+[ 2026-06-15 23:14:34,634 ] 107 dagshub - INFO - Repository Aftab-81/Network_Security initialized!

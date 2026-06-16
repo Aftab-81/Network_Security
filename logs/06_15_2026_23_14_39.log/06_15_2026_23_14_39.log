@@ -1,0 +1,33 @@
+[ 2026-06-15 23:14:51,835 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-15 23:14:51,851 ] 107 dagshub - INFO - Accessing as Aftab-81
+[ 2026-06-15 23:14:53,211 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Aftab-81/Network_Security "HTTP/1.1 200 OK"
+[ 2026-06-15 23:14:57,838 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-15 23:14:57,853 ] 107 dagshub - INFO - Initialized MLflow to track repo "Aftab-81/Network_Security"
+[ 2026-06-15 23:14:57,853 ] 107 dagshub - INFO - Repository Aftab-81/Network_Security initialized!
+[ 2026-06-15 23:17:56,709 ] 33 root - INFO - Start Data Ingestion
+[ 2026-06-15 23:18:09,149 ] 63 root - INFO - Performed train test split on the dataframe
+[ 2026-06-15 23:18:09,149 ] 65 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2026-06-15 23:18:09,149 ] 72 root - INFO - Exporting train and test path
+[ 2026-06-15 23:18:09,266 ] 82 root - INFO - Exported train and test file path
+[ 2026-06-15 23:18:09,266 ] 36 root - INFO - Data Ingestion Completed and Artifact: DataIngestionArtifacts(trained_file_path='Artifacts\\06_15_2026_23_14_41\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\06_15_2026_23_14_41\\data_ingestion\\ingested\\test.csv')
+[ 2026-06-15 23:18:09,302 ] 45 root - INFO - Initiate the data validation
+[ 2026-06-15 23:18:09,400 ] 32 root - INFO - Required Number of columns: 2
+[ 2026-06-15 23:18:09,400 ] 33 root - INFO - Data frame has columns: 31
+[ 2026-06-15 23:18:09,400 ] 32 root - INFO - Required Number of columns: 2
+[ 2026-06-15 23:18:09,400 ] 33 root - INFO - Data frame has columns: 31
+[ 2026-06-15 23:18:09,750 ] 57 root - INFO - Initiate the data transformation
+[ 2026-06-15 23:18:09,750 ] 63 root - INFO - Entered initiate_data_trasnformation method od DataTransformation class
+[ 2026-06-15 23:18:09,750 ] 65 root - INFO - Starting data transformation
+[ 2026-06-15 23:18:09,809 ] 48 root - INFO - Entered get_data_transformer_object method of DataTransformation Class
+[ 2026-06-15 23:18:09,809 ] 54 root - INFO - Initialized KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2026-06-15 23:18:09,915 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-15 23:18:09,916 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-15 23:18:09,916 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-15 23:18:09,916 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-15 23:20:35,581 ] 869 urllib3.connectionpool - WARNING - Retrying (Retry(total=6, connect=7, read=7, redirect=7, status=7)) after connection broken by 'SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2393)')': /Aftab-81/Network_Security.mlflow/api/2.0/mlflow-artifacts/artifacts/5589a833c2f341cf8676d9737fb6466e/models/m-d2700c06e4bf4ac4b8e9b29b80a9819e/artifacts/model.pkl
+[ 2026-06-15 23:21:22,449 ] 869 urllib3.connectionpool - WARNING - Retrying (Retry(total=5, connect=6, read=7, redirect=7, status=7)) after connection broken by 'ConnectTimeoutError(<HTTPSConnection(host='dagshub.com', port=443) at 0x2b67d1d52d0>, 'Connection to dagshub.com timed out. (connect timeout=120)')': /Aftab-81/Network_Security.mlflow/api/2.0/mlflow-artifacts/artifacts/5589a833c2f341cf8676d9737fb6466e/models/m-d2700c06e4bf4ac4b8e9b29b80a9819e/artifacts/model.pkl
+[ 2026-06-15 23:23:40,797 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-15 23:23:40,853 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-15 23:23:40,854 ] 47 root - INFO - Entered the save_object method of MainUtils class
+[ 2026-06-15 23:23:40,895 ] 51 root - INFO - Exited the save_object of MainUtils class
+[ 2026-06-15 23:23:40,895 ] 136 root - INFO - Model trainer artifact: ModelTrainerArtifacts(trained_model_file_path='Artifacts\\06_15_2026_23_14_41\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9905458981396768, precision_score=0.9884357881923311, recall_score=0.9926650366748166), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.977281785571941, precision_score=0.973015873015873, recall_score=0.9815852682145717))
